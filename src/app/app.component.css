@@ -1,3 +1,60 @@
 .header {
-  background-color: grey;
+  background-color: lightgrey;
+}
+.header .fa {
+  font-size: 18px;
+  color: silver;
+  border-radius: 3px;
+  background-color: #fcfcfc;
+  cursor: pointer;
+}
+.header .fa::before {
+  vertical-align: middle;
+}
+.header .fa:hover {
+  color: grey;
+}
+.header .search {
+  width: auto;
+  border-radius: 5px;
+  height: 30px;
+  background-color: #fcfcfc;
+  color: grey;
+}
+.app-body {
+  margin-right: 0px;
+  height: 600px;
+}
+.app-body .note-titles .note-item {
+  cursor: pointer;
+  border-bottom: 1px solid silver;
+}
+.app-body .note-titles .note-item .note-time {
+  font-size: 12px;
+}
+.app-body .note-titles .note-item .note-content {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+  overflow: hidden;
+}
+.app-body .note-body {
+  width: 100%;
+  border-left: 1px solid silver;
+  background-color: whitesmoke;
+}
+.app-body .note-body .note-name {
+  font-size: 25px;
+  border: none;
+  background: whitesmoke;
+  border-bottom: 1px solid silver;
+}
+.app-body .note-body .note-time {
+  font-size: 12px;
+}
+.app-body .note-body .note-content {
+  background-color: whitesmoke;
+  border: none;
+  width: 100%;
+  height: inherit;
 }

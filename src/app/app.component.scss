@@ -1,3 +1,63 @@
-.header{
-    background-color:grey
+.header {
+  background-color: lightgrey;
+  .fa {
+    font-size: 18px;
+    color: silver;
+    border-radius: 3px;
+    background-color: #fcfcfc;
+    cursor: pointer;
+    &::before {
+      vertical-align: middle;
+    }
+    &:hover {
+      color: grey;
+    }
+  }
+  .search {
+    width: auto;
+    border-radius: 5px;
+    height: 30px;
+    background-color: #fcfcfc;
+    color: grey;
+  }
+}
+.app-body {
+  margin-right: 0px;
+  height: 600px;
+  .note-titles {
+    .note-item {
+      cursor: pointer;
+      border-bottom: 1px solid silver;
+      .note-time {
+        font-size: 12px;
+      }
+      .note-content {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 13px;
+        overflow: hidden;
+      }
+    }
+  }
+
+  .note-body {
+    width: 100%;
+    border-left: 1px solid silver;
+    background-color: whitesmoke;
+    .note-name {
+      font-size: 25px;
+      border: none;
+      background: whitesmoke;
+      border-bottom: 1px solid silver;
+    }
+    .note-time {
+      font-size: 12px;
+    }
+    .note-content {
+      background-color: whitesmoke;
+      border: none;
+      width: 100%;
+      height: inherit;
+    }
+  }
 }

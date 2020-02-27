@@ -1,10 +1,11 @@
 export class Note {
     private _name: string = 'New Note';
-    private _content: string = 'Type Here To Add Notes';
+    private _content: string;
     private _created: Date;
     private _edited: Date;
     constructor(created: Date) {
         this._created = created;
+        this._edited=created;
     }
     public get name(): string {
         return this._name;
