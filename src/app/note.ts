@@ -1,6 +1,6 @@
 export class Note {
     private _name: string = 'New Note';
-    private _content: string;
+    private _content: string='';
     private _created: Date;
     private _edited: Date;
     constructor(created: Date) {

@@ -1,16 +1,16 @@
 <div class="header d-flex justify-content-start">
-  <i class="fa fa-angle-double-right px-3 py-1 my-2 ml-2 mr-auto" aria-hidden="true" (click)="toggle()"></i>
+  <i class="fa fa-angle-double-right px-3 py-1 my-2 ml-2" aria-hidden="true" (click)="toggle()"></i>
+  <input class="search form-control px-3 py-1 mx-1 my-2 mr-auto w-25" type="search" [(ngModel)]="searchTerm" placeholder="Search" />
   <i class="fa fa-plus px-3 py-1 mx-1 my-2" aria-hidden="true" (click)="addNote()"></i>
   <i class="fa fa-trash px-3 py-1 mx-1 my-2" aria-hidden="true" (click)="deleteNote()"></i>
   <i class="fa fa-floppy-o px-3 py-1 mx-1 my-2" aria-hidden="true" (click)="saveNote()"></i>
-  <input class="search form-control px-3 py-1 mx-1 my-2" type="search" placeholder="Search" (change)="searchChange()"/>
 </div>
 <div class="row app-body">
   <div class="note-titles col-lg-4">
       <i class="fa fa-book ml-2" aria-hidden="true"></i>
-      <span class="font-weight-bold"> Notes</span>
-      <div class="note-item p-2" (click)="noteItemClick(note,i)" *ngFor="let note of notes;let i=index">
-           <span class="note-name ">{{note.name}}</span><br>
+      <span class="font-weight-normal"> Notes</span>
+      <div class="note-item p-2" [ngClass]="{ 'bg-light': i==currentNoteIndex}" (click)="noteItemClick(note,i)" *ngFor="let note of notes | filter : searchTerm ;index as i">
+           <span class="note-name font-weight-bold">{{note.name}}</span><br>
            <span class="note-time text-muted">{{note.edited | date: 'short'}}</span><br>
            <span class="note-content d-block">{{note.content}}</span>
       </div>
