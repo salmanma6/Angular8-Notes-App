@@ -3,9 +3,14 @@ export class Note {
     private _content: string='';
     private _created: Date;
     private _edited: Date;
-    constructor(created: Date) {
+    private _id;
+    constructor(created: Date,id) {
         this._created = created;
         this._edited=created;
+        this._id=id;
+    }
+    public get id(){
+        return this._id;
     }
     public get name(): string {
         return this._name;
