@@ -1,11 +1,13 @@
+import { FilterPipe } from './pipes/filter-pipe';
 import { Component } from '@angular/core';
 import { Note } from './note';
 import { DatePipe } from '@angular/common';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  providers: [DatePipe]
+  providers: [DatePipe, FilterPipe]
 })
 export class AppComponent {
 
@@ -14,7 +16,7 @@ export class AppComponent {
   currentNoteIndex = 0;
   collapsed = false;
   searchTerm = "";
-  constructor(public datePipe: DatePipe) { }
+  constructor(public datePipe: DatePipe, public filterPipe: FilterPipe) { }
 
   ngOnInit() {
     this.currentNote = new Note(new Date());
@@ -32,7 +34,8 @@ export class AppComponent {
     this.currentNoteIndex = this.notes.length - 1;
     //localStorage.notes=JSON.stringify(this.notes);
   }
-  noteItemClick(note, index) {
+  noteItemClick(note) {
+    let index = this.notes.findIndex((noteInArray) => (note.id == noteInArray))
     this.currentNote = this.notes[index];
     this.currentNoteIndex = index;
   }
@@ -48,7 +51,7 @@ export class AppComponent {
       this.currentNoteIndex -= 1;
       this.currentNote = this.notes[this.currentNoteIndex];
     }
-    else{
+    else {
       this.currentNoteIndex = 0;
       this.currentNote = this.notes[this.currentNoteIndex];
     }
