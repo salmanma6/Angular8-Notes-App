@@ -8,10 +8,11 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  providers: [DatePipe, FilterPipe]
+  providers: [DatePipe, FilterPipe],
+  
 })
 export class AppComponent {
-
+   //414px for mobile
   noteNameChange: Subject<string> = new Subject<string>();
   noteNameChangeSubscription: Subscription;
   noteContentChange: Subject<string> = new Subject<string>();
@@ -22,6 +23,7 @@ export class AppComponent {
   collapsed = false;
   searchTerm = "";
   ids = [];
+  collapseIcon="left"
   constructor(public datePipe: DatePipe, public filterPipe: FilterPipe) { }
   ngOnInit() {
     let id = this.generateId();
@@ -104,6 +106,7 @@ export class AppComponent {
 
   toggle() {
     this.collapsed = !this.collapsed;
+    this.collapseIcon=this.collapsed?"right":"left";
   }
 
   ngOnDestroy() {

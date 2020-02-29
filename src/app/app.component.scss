@@ -31,7 +31,8 @@
   height: 600px;
 
   .note-titles {
-
+    height: 100%;
+    overflow-y: scroll;
     .note-item {
       cursor: pointer;
       border-bottom: 1px solid silver;
@@ -41,9 +42,6 @@
       }
 
       .note-content {
-        span.highlight-text {
-          background-color: red;
-        }
         text-overflow: ellipsis;
         white-space: nowrap;
         font-size: 13px;
@@ -62,6 +60,9 @@
       border: none;
       background: whitesmoke;
       border-bottom: 1px solid silver;
+      &:focus {
+        outline: none !important;
+      }
     }
 
     .note-time {
@@ -72,7 +73,11 @@
       background-color: whitesmoke;
       border: none;
       width: 100%;
-      height: inherit;
+      height: 89%;
+      overflow-y: scroll;
+      &:focus {
+        outline: none !important;
+      }
     }
   }
 }

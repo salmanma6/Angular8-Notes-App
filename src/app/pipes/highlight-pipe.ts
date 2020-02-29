@@ -10,7 +10,7 @@ export class HighLightPipe implements PipeTransform {
             return value;
         let re = new RegExp(args, 'gi');
         if (value.match(re) != null) {
-            value = value.replace(re, `<span class="bg-info">${value.match(re)[0]}</span>`);
+            value = value.replace(re, `<span class="bg-warning">${value.match(re)[0]}</span>`);
         }
 
         return value

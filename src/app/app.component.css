@@ -25,6 +25,10 @@
   margin-right: 0px;
   height: 600px;
 }
+.app-body .note-titles {
+  height: 100%;
+  overflow-y: scroll;
+}
 .app-body .note-titles .note-item {
   cursor: pointer;
   border-bottom: 1px solid silver;
@@ -49,6 +53,9 @@
   background: whitesmoke;
   border-bottom: 1px solid silver;
 }
+.app-body .note-body .note-name:focus {
+  outline: none !important;
+}
 .app-body .note-body .note-time {
   font-size: 12px;
 }
@@ -56,5 +63,9 @@
   background-color: whitesmoke;
   border: none;
   width: 100%;
-  height: inherit;
+  height: 89%;
+  overflow-y: scroll;
+}
+.app-body .note-body .note-content:focus {
+  outline: none !important;
 }
