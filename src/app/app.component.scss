@@ -1,3 +1,5 @@
+// @import '~perfect-scrollbar/css/perfect-scrollbar.css';
+
 .header {
   background-color: lightgrey;
 
@@ -29,10 +31,23 @@
 .app-body {
   margin-right: 0px;
   height: 600px;
+  .slimscroll {
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
 
+    &::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: darkgrey;
+      outline: 1px solid slategrey;
+    }
+  }
   .note-titles {
     height: 100%;
-    overflow-y: scroll;
+     overflow-y: scroll;
     .note-item {
       cursor: pointer;
       border-bottom: 1px solid silver;
@@ -74,7 +89,7 @@
       border: none;
       width: 100%;
       height: 89%;
-      overflow-y: scroll;
+      //  overflow-y: scroll;
       &:focus {
         outline: none !important;
       }

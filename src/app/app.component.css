@@ -25,6 +25,16 @@
   margin-right: 0px;
   height: 600px;
 }
+.app-body .slimscroll::-webkit-scrollbar {
+  width: 8px;
+}
+.app-body .slimscroll::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+.app-body .slimscroll::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
 .app-body .note-titles {
   height: 100%;
   overflow-y: scroll;
@@ -64,7 +74,6 @@
   border: none;
   width: 100%;
   height: 89%;
-  overflow-y: scroll;
 }
 .app-body .note-body .note-content:focus {
   outline: none !important;
