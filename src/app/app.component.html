@@ -1,4 +1,4 @@
-<div class="header d-flex justify-content-start">
+<div class="header d-flex justify-content-start align-items-center">
   <i class="fa fa-angle-double-{{collapseIcon}}  py-1 my-2 ml-2" [ngClass]="{ 'px-3' : !mobileMode , 'px-2' :mobileMode } " aria-hidden="true" (click)="toggle()"></i>
   <input class="search form-control  py-1 mx-1 my-2 mr-auto w-auto"  [ngClass]="{ 'px-3' : !mobileMode , 'px-2' :mobileMode } " type="search" (ngModelChange)="searchChange()" [(ngModel)]="searchTerm"
     placeholder="Search" />
@@ -17,7 +17,7 @@
       <span innerHTML="{{ note.content | highlight : searchTerm}}"   class="note-content d-block">{{note.content}}</span>
       </div>
   </div>
-  <div class="note-body" [ngClass]="{'col-md-8' : !collapsed , 'pl-3': collapsed , 'd-none': !collapsed && mobileMode }">
+  <div class="note-body" [ngClass]="{'col-md-8' : !collapsed , 'pl-4': collapsed , 'd-none': !collapsed && mobileMode }">
         <input class="note-name" type="text" (ngModelChange)='noteNameChange.next($event)'  [(ngModel)]="currentNote.name" /><br>
         <span class="note-time text-muted"> Created: {{currentNote.created | date:'shortDate'}}</span>
         <span class="note-time text-muted"> | Last Edited {{currentNote.edited | date: 'short'}}</span><br>
