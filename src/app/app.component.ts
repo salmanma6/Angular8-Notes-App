@@ -20,7 +20,7 @@ export class AppComponent {
   notes = []
   currentNote: Note;
   currentNoteIndex = 0;
-  collapsed=true;
+  collapsed = true;
   searchTerm = "";
   ids = [];
   collapseIcon = "left";
@@ -54,32 +54,32 @@ export class AppComponent {
       .subscribe(content => {
         this.saveNote();
       });
-  }
-
-  ngAfterViewInit() {
     if (window.innerWidth <= 414) {
       this.mobileMode = true;
       this.collapsed = true;
-      this.collapseIcon="right"
+      this.collapseIcon = "right"
       //mobile versions px-2 in add and delete icons
     }
     else {
       this.mobileMode = false;
       this.collapsed = false;
-      this.collapseIcon="left"
+      this.collapseIcon = "left"
     }
   }
+
+
+
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     if (window.innerWidth <= 414) {
       this.mobileMode = true;
       this.collapsed = true;
-      this.collapseIcon="right"
+      this.collapseIcon = "right"
     }
     else {
       this.mobileMode = false;
       this.collapsed = false;
-      this.collapseIcon="left"
+      this.collapseIcon = "left"
     }
   }
   addNote() {
@@ -94,6 +94,10 @@ export class AppComponent {
     let index = this.notes.findIndex((noteInArray) => (note.id == noteInArray.id))
     this.currentNote = this.notes[index];
     this.currentNoteIndex = index;
+    if(this.mobileMode){
+      this.collapsed=true;
+      this.collapseIcon="right"
+    }
   }
 
   saveNote() {
@@ -140,9 +144,10 @@ export class AppComponent {
     this.noteNameChangeSubscription.unsubscribe();
     this.noteContentChangeSubscription.unsubscribe();
   }
-  searchChange(){
-    if(this.searchTerm.length > 0){
-      this.collapsed=false;
+  searchChange() {
+    if (this.searchTerm.length > 0) {
+      this.collapsed = false;
+      this.collapseIcon="left"
     }
   }
 }

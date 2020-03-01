@@ -1,5 +1,4 @@
 // @import '~perfect-scrollbar/css/perfect-scrollbar.css';
-
 .header {
   background-color: lightgrey;
 
@@ -30,7 +29,7 @@
 
 .app-body {
   margin-right: 0px;
-  height: 100vh;
+  height: calc(100vh - 60px);
   .slimscroll {
     &::-webkit-scrollbar {
       width: 8px;

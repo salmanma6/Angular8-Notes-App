@@ -23,7 +23,7 @@
 }
 .app-body {
   margin-right: 0px;
-  height: 100vh;
+  height: calc(100vh - 60px);
 }
 .app-body .slimscroll::-webkit-scrollbar {
   width: 8px;
