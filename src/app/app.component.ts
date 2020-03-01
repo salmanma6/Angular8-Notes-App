@@ -94,9 +94,9 @@ export class AppComponent {
     let index = this.notes.findIndex((noteInArray) => (note.id == noteInArray.id))
     this.currentNote = this.notes[index];
     this.currentNoteIndex = index;
-    if(this.mobileMode){
-      this.collapsed=true;
-      this.collapseIcon="right"
+    if (this.mobileMode) {
+      this.collapsed = true;
+      this.collapseIcon = "right"
     }
   }
 
@@ -108,12 +108,15 @@ export class AppComponent {
   }
 
   deleteNote() {
-    if (this.notes.length != 1) {
-      this.notes.splice(this.currentNoteIndex, 1);
-      this.ids.splice(this.currentNoteIndex, 1);
-      localStorage.notes = JSON.stringify(this.notes);
-      localStorage.ids = JSON.stringify(this.ids);
+    this.notes.splice(this.currentNoteIndex, 1);
+    this.ids.splice(this.currentNoteIndex, 1);
+    if (this.notes.length == 0) {
+      let id = this.generateId();
+      this.currentNote = new Note(new Date(), id);
+      this.notes.push(this.currentNote);
     }
+    localStorage.notes = JSON.stringify(this.notes);
+    localStorage.ids = JSON.stringify(this.ids);
     if (!(this.currentNoteIndex - 1 < 0)) {
       this.currentNoteIndex -= 1;
     }
@@ -147,7 +150,7 @@ export class AppComponent {
   searchChange() {
     if (this.searchTerm.length > 0) {
       this.collapsed = false;
-      this.collapseIcon="left"
+      this.collapseIcon = "left"
     }
   }
 }

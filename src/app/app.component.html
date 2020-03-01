@@ -17,7 +17,7 @@
       <span innerHTML="{{ note.content | highlight : searchTerm}}"   class="note-content d-block">{{note.content}}</span>
       </div>
   </div>
-  <div class="note-body" [ngClass]="{'col-md-8' : !collapsed , 'pl-3': collapsed }">
+  <div class="note-body" [ngClass]="{'col-md-8' : !collapsed , 'pl-3': collapsed , 'd-none': !collapsed && mobileMode }">
         <input class="note-name" type="text" (ngModelChange)='noteNameChange.next($event)'  [(ngModel)]="currentNote.name" /><br>
         <span class="note-time text-muted"> Created: {{currentNote.created | date:'shortDate'}}</span>
         <span class="note-time text-muted"> | Last Edited {{currentNote.edited | date: 'short'}}</span><br>
