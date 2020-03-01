@@ -7,7 +7,7 @@
   <!-- <i class="fa fa-floppy-o px-3 py-1 mx-1 my-2" aria-hidden="true" (click)="saveNote()"></i> -->
 </div>
 <div class="row app-body" >
-  <div class="note-titles slimscroll"   [ngClass]="{ 'col-md-4' : !collapsed , 'd-none' :collapsed ,'d-block': !collapsed}">
+  <div class="note-titles slimscroll"   [ngClass]="{ 'col-sm-4' : !collapsed , 'd-none' :collapsed ,'d-block': !collapsed}">
     <i class="fa fa-book ml-2" aria-hidden="true"></i>
     <span class="font-weight-normal"> Notes</span>
     <div class="note-item p-2" [ngClass]="{ 'bg-light': note.id==currentNote.id}" (click)="noteItemClick(note)"
@@ -17,7 +17,7 @@
       <span innerHTML="{{ note.content | highlight : searchTerm}}"   class="note-content d-block">{{note.content}}</span>
       </div>
   </div>
-  <div class="note-body" [ngClass]="{'col-md-8' : !collapsed , 'pl-4': collapsed , 'd-none': !collapsed && mobileMode }">
+  <div class="note-body" [ngClass]="{'col-sm-8' : !collapsed , 'pl-4': collapsed , 'd-none': !collapsed && mobileMode }">
         <input class="note-name" type="text" (ngModelChange)='noteNameChange.next($event)'  [(ngModel)]="currentNote.name" /><br>
         <span class="note-time text-muted"> Created: {{currentNote.created | date:'shortDate'}}</span>
         <span class="note-time text-muted"> | Last Edited {{currentNote.edited | date: 'short'}}</span><br>

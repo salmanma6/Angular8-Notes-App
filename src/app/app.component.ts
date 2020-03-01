@@ -12,7 +12,7 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 })
 export class AppComponent {
-  //414px for mobile
+  //576px for mobile
   noteNameChange: Subject<string> = new Subject<string>();
   noteNameChangeSubscription: Subscription;
   noteContentChange: Subject<string> = new Subject<string>();
@@ -54,7 +54,7 @@ export class AppComponent {
       .subscribe(content => {
         this.saveNote();
       });
-    if (window.innerWidth <= 414) {
+    if (window.innerWidth <= 767) {
       this.mobileMode = true;
       this.collapsed = true;
       this.collapseIcon = "right"
@@ -71,7 +71,7 @@ export class AppComponent {
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
-    if (window.innerWidth <= 414) {
+    if (window.innerWidth <= 767) {
       this.mobileMode = true;
       this.collapsed = true;
       this.collapseIcon = "right"
